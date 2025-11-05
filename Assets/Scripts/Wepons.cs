@@ -5,6 +5,7 @@ using UnityEngine;
 public class Wepons : MonoBehaviour
 {
     public ParticleSystem muzzleflash;
+    public AudioSource gunfire;
     public float fireRate;
     void Start()
     {
@@ -34,6 +35,7 @@ public class Wepons : MonoBehaviour
     private IEnumerator FireFlash(float duration)
     {
         muzzleflash.Play();
+        gunfire.PlayOneShot(gunfire.clip);
         yield return new WaitForSeconds( duration);
         muzzleflash.Stop();
     }
